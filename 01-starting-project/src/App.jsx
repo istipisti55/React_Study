@@ -5,6 +5,8 @@ import Simple from "./Simple";
 function App() {
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+  const kacsa = "kacsa";
+
   // Transform the array using reduce
   const arrayResolved = array.reduce((acc, value, index) => {
     const chunkSize = 3; // Specify the size of each sub-array
