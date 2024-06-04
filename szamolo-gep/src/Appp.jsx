@@ -1,6 +1,4 @@
 import "./App.css";
-import TableGrid from "./TableGrid";
-import NumericScreen from "./NumericScreen";
 import { useState } from "react";
 
 const numbers = [
@@ -8,18 +6,24 @@ const numbers = [
   [4, 5, 6, `-`],
   [1, 2, 3, `*`],
   [0, `,`, `=`, `/`],
+  ["clear"],
 ];
 
-const [actualCharacter, setActualCharacter] = useState();
-
-function handleClick(rowIndex, colIndex) {
-  setActualCharacter(numbers[rowIndex][colIndex]);
-}
-
 function App() {
+  const [actualCharacters, setActualCharacter] = useState("");
+
+  function handleClick(rowIndex, colIndex) {
+    console.log(actualCharacters);
+    const character = numbers[rowIndex][colIndex];
+    //const number = actualCharacters + character;
+    setActualCharacter((prev) => prev + character);
+  }
+
+  const number = actualCharacters;
+
   return (
     <>
-      <input type="text" required value={actualCharacter} />
+      <input type="text" required value={number} />
       {numbers.map((row, rowIndex) => (
         <tr key={rowIndex}>
           {row.map((number, colIndex) => (
