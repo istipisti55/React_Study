@@ -18,6 +18,7 @@ export default function ProjectDetails() {
       </div>
 
       <p>Task description</p>
+      <p>Teszt</p>
     </form>
   );
 }
